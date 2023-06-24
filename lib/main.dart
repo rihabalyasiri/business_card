@@ -7,22 +7,75 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home:  Scaffold(
-        appBar: AppBar(
-            title: const Text("SWOOK"),
-          backgroundColor: Colors.black12,
-        ),
-       backgroundColor: Colors.teal,
-        body:  const Center(
-          child: Image(
-            image:AssetImage("images/diamond.png")
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text("Business Card"),
+            backgroundColor: Colors.black12,
           ),
-        )
-      ),
+          backgroundColor: Colors.teal,
+          body: const SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/rihab.jpg')),
+                SizedBox(width: 30),
+                Text(
+                  "Rihab Al-Yasiri",
+                  style: TextStyle(
+                      fontFamily: "Pacifico",
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Text(
+                    "Software Developer",
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 20, letterSpacing: 2),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                  width: 150,
+                  child: Divider(
+                    color: Colors.tealAccent
+                  )
+                ),
+
+                Card(
+                  margin: EdgeInsets.all(20),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.phone,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      "+49 17671206000",
+                      style: TextStyle(color: Colors.teal),
+                    ),
+                  ),
+                ),
+                Card(
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  child: ListTile(
+                      leading: Icon(
+                        Icons.email,
+                        color: Colors.teal,
+                      ),
+                      title: Text(
+                        "rihab.al-yasiri@web.de",
+                        style: TextStyle(color: Colors.teal),
+                      )),
+                )
+              ],
+            ),
+          )),
     );
   }
 }
